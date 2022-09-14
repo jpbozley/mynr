@@ -15,7 +15,6 @@ function Medications() {
             })
     }, [medicineName])
 
-
     useEffect(() => {
         axios.get(`https://rxnav.nlm.nih.gov/REST/interaction/list.json?rxcuis=11289+${medicineCUI}`)
             .then(response => setInteractionString(response.data.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description))

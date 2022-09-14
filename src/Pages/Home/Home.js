@@ -1,6 +1,7 @@
 import './Home.scss';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 function Home() {
 
 
@@ -22,6 +23,7 @@ function Home() {
                 <h2 className="Home__stats">Today, you take: </h2>
                 <h3></h3>
             </div>
+            <button><Link to="/edit" className="Home__link">Edit Details</Link></button>
         </div>
     );
 }

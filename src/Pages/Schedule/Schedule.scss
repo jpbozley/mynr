@@ -1,8 +1,12 @@
 .Schedule {
     &__list {
         list-style: none;
-        padding-left: 0;
+        padding-left: 1rem;
     }
 
-    &__list-item {}
+    &__list-item {
+        text-align: left;
+        color: #000080;
+        font-weight: 600;
+    }
 }

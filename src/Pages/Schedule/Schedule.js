@@ -1,6 +1,4 @@
 import './Schedule.scss';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 function Schedule() {
 
@@ -16,7 +14,7 @@ function Schedule() {
                 <li className="Schedule__list-item">Saturday: </li>
                 <li className="Schedule__list-item">Sunday: </li>
             </ul>
-            <button><Link to="/schedule/edit">Edit Schedule</Link></button>
+            <button><Link className="Schedule__link" to="/schedule/edit">Edit Schedule</Link></button>
 
         </div>
     );

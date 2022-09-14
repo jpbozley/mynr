@@ -1,0 +1,33 @@
+const express = require("express");
+const app = express();
+const fs = require("fs");
+const cors = require("cors");
+require("dotenv").config();
+const { PORT, BACKEND_URL } = process.env;
+const checkups = require('./data/checkups.json')
+const medications = require('./data/medications.json')
+const schedule = require('./data/schedule.json')
+
+
+
+//cors middleware
+app.use(cors());
+
+//middleware to give us access to req.body
+app.use(express.json());
+
+app.get('/checkups', (req, res) => {
+    res.send(checkups)
+});
+
+app.get('/medications', (req, res) => {
+    res.send(medications)
+});
+
+app.get('/schedule', (req, res) => {
+    res.send(schedule)
+})
+//listener
+app.listen(PORT, () => {
+    console.log("We are live!")
+})

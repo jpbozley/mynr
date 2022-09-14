@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 function Medications() {
 
 
-    const [medicineName, setMedicineName] = useState();
-    const [medicineCUI, setMedicineCUI] = useState()
-    const [interactionString, setInteractionString] = useState();
+    const [medicineName, setMedicineName] = useState(null);
+    const [medicineCUI, setMedicineCUI] = useState(null)
+    const [interactionString, setInteractionString] = useState(null);
 
     useEffect(() => {
         axios.get(`https://rxnav.nlm.nih.gov/REST/rxcui.json?name=${medicineName}`)
@@ -40,13 +40,14 @@ function Medications() {
     }
 
     return (
-        <div className="App">
+        <div className="Medications">
+            <h2 className='Medications__name'>{medicineName}</h2>
+            <p className="Medications__interactions">{interactionString}</p>
             <form onSubmit={submitHandler}>
                 <input name="name" type="text" />
                 <button>Add New Medication</button>
             </form>
-            <h2>{medicineName}</h2>
-            <h3>{interactionString}</h3>
+
         </div>
     );
 }

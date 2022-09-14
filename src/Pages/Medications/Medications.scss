@@ -1,0 +1,10 @@
+.Medications {
+    &__name {}
+
+    ;
+
+    &__interactions {
+        display: flex;
+        justify-content: flex-start;
+    }
+}

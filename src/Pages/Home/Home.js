@@ -2,18 +2,8 @@ import './Home.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-function Home() {
+function Home({ checkup }) {
 
-
-    const [checkup, setCheckup] = useState()
-
-    useEffect(() => {
-        axios.get(`http://localhost:8080/checkups`)
-            .then(response => {
-                console.log(response)
-                setCheckup(response)
-            })
-    }, [])
 
     if (checkup === undefined) {
         return (<h1>loading...</h1>)

@@ -11,15 +11,25 @@ import { Routes, BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
 
+
+  const [checkup, setCheckup] = useState()
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/checkups`)
+      .then(response => {
+        console.log(response)
+        setCheckup(response)
+      })
+  }, [])
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home checkup={checkup} />}></Route>
           <Route path="/medications" element={<Medications />}></Route>
           <Route path="/schedule" element={<Schedule />}></Route>
-          <Route path="/edit" element={<EditDetails />}></Route>
+          <Route path="/edit" element={<EditDetails setCheckup={setCheckup} />}></Route>
           <Route path="/schedule/edit" element={<EditSchedule />}></Route>
         </Routes>
       </BrowserRouter>

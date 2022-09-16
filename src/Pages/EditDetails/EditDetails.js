@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import './EditDetails.scss'
 import { useNavigate, Link } from 'react-router-dom';
 
-function EditDetails() {
+function EditDetails({ setCheckup }) {
 
 
     const formRef = useRef();
@@ -18,6 +18,7 @@ function EditDetails() {
             upperRange: formRef.current.upperRange.value,
         }
         )
+            .then(response => setCheckup(response))
         navigate('/')
 
     }

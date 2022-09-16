@@ -1,21 +1,44 @@
+import axios from 'axios';
+import { useRef } from 'react';
 import './EditDetails.scss'
+import { useNavigate, Link } from 'react-router-dom';
 
 function EditDetails() {
 
+
+    const formRef = useRef();
+    const navigate = useNavigate();
+
+    let detailsHandler = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:8080/checkups', {
+            date: formRef.current.date.value,
+            reading: formRef.current.reading.value,
+            lowerRange: formRef.current.lowerRange.value,
+            upperRange: formRef.current.upperRange.value,
+        }
+        )
+        navigate('/')
+
+    }
     return (
         <div className="editDetails">
-            <form className="editDetails__form">
+            <form className="editDetails__form" ref={formRef} onSubmit={detailsHandler}>
                 <div className="editDetails__container">
-                    <label className="editDetails__label" htmlFor="Date">Date of last check:</label>
-                    <input className="editDetails__item" name="Date" type="text" placeholder='Date of last check' />
+                    <label className="editDetails__label" htmlFor="date">Date of last check:</label>
+                    <input className="editDetails__item" name="date" type="text" placeholder='Date of last check' />
                 </div>
                 <div className="editDetails__container">
-                    <label className="editDetails__label" htmlFor="Reading">INR Reading:</label>
-                    <input className="editDetails__item" name="Reading" type="text" placeholder='INR Reading' />
+                    <label className="editDetails__label" htmlFor="reading">INR Reading:</label>
+                    <input className="editDetails__item" name="reading" type="text" placeholder='INR Reading' />
                 </div>
                 <div className="editDetails__container">
-                    <label className="editDetails__label" htmlFor="Range">Target Range:</label>
-                    <input className="editDetails__item" name="Range" type="text" placeholder='Target Range' />
+                    <label className="editDetails__label" htmlFor="lowerRange">Lower Range:</label>
+                    <input className="editDetails__item" name="lowerRange" type="text" placeholder='Target Range' />
+                </div>
+                <div className="editDetails__container">
+                    <label className="editDetails__label" htmlFor="upperRange">Upper Range:</label>
+                    <input className="editDetails__item" name="upperRange" type="text" placeholder='Target Range' />
                 </div>
                 <button className="editDetails__button">Submit</button>
             </form>

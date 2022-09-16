@@ -1,10 +1,31 @@
 import './EditSchedule.scss'
-
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 function EditSchedule() {
+    const formRef = useRef();
+    const navigate = useNavigate();
+
+    let scheduleHandler = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:8080/schedule', {
+            Monday: formRef.current.Monday.value,
+            Tuesday: formRef.current.Tuesday.value,
+            Wednesday: formRef.current.Wednesday.value,
+            Thursday: formRef.current.Thursday.value,
+            Friday: formRef.current.Friday.value,
+            Saturday: formRef.current.Saturday.value,
+            Sunday: formRef.current.Sunday.value,
+
+        }
+        )
+        navigate('/schedule')
+    }
+
 
     return (
         <div className="editSchedule">
-            <form className="editSchedule__form">
+            <form className="editSchedule__form" ref={formRef} onSubmit={scheduleHandler}>
                 <div className="editSchedule__container">
                     <label htmlFor="Monday">Monday:</label>
                     <input type="text" name="Monday" />

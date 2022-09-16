@@ -1,6 +1,18 @@
 import './Schedule.scss';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 function Schedule() {
+
+    // const [schedule, setSchedule] = useState()
+
+
+    // useEffect(() => {
+    //     axios.get(`http://localhost:8080/schedule`)
+    //         .then(response => {
+    //             setSchedule(response)
+    //         })
+    // }, [schedule])
 
 
     return (

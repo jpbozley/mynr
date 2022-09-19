@@ -1,13 +1,13 @@
 import './Header.scss';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import heartIcon from "../../Assets/Images and Icons/heartIcon.png"
+
 
 function Header() {
 
     return (
         <div className="Header">
-            <h1 className="Header__title">MyNR</h1>
+            <h1 className="Header__title"><img className="Header__title-icon" src={heartIcon} alt="" />  MyNR</h1>
             <ul className="Header__list">
                 <li>
                     <NavLink className="Header__link" to="/">Home</NavLink>

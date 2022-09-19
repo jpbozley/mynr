@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useRef } from 'react';
 import './EditDetails.scss'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function EditDetails({ setCheckup }) {
 

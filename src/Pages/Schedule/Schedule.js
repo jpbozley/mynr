@@ -1,34 +1,25 @@
 import './Schedule.scss';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-function Schedule() {
+function Schedule({ schedule }) {
 
-    // const [schedule, setSchedule] = useState()
-
-
-    // useEffect(() => {
-    //     axios.get(`http://localhost:8080/schedule`)
-    //         .then(response => {
-    //             setSchedule(response)
-    //         })
-    // }, [schedule])
-
+    if (schedule === undefined) {
+        return (<h1>loading...</h1>)
+    }
 
     return (
-        <div className="Schedule">
+        < div className="Schedule" >
             <ul className="Schedule__list">
-                <li className="Schedule__list-item">Monday: </li>
-                <li className="Schedule__list-item">Tuesday: </li>
-                <li className="Schedule__list-item">Wednesday: </li>
-                <li className="Schedule__list-item">Thursday: </li>
-                <li className="Schedule__list-item">Friday: </li>
-                <li className="Schedule__list-item">Saturday: </li>
-                <li className="Schedule__list-item">Sunday: </li>
+                <li className="Schedule__list-item">Monday: {schedule.data.Monday} mg </li>
+                <li className="Schedule__list-item">Tuesday: {schedule.data.Tuesday} mg</li>
+                <li className="Schedule__list-item">Wednesday: {schedule.data.Wednesday} mg</li>
+                <li className="Schedule__list-item">Thursday: {schedule.data.Thursday} mg</li>
+                <li className="Schedule__list-item">Friday: {schedule.data.Friday} mg</li>
+                <li className="Schedule__list-item">Saturday: {schedule.data.Saturday} mg</li>
+                <li className="Schedule__list-item">Sunday: {schedule.data.Sunday} mg</li>
             </ul>
             <button><Link className="Schedule__link" to="/schedule/edit">Edit Schedule</Link></button>
 
-        </div>
+        </div >
     );
 }
 

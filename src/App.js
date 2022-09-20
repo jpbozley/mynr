@@ -46,7 +46,7 @@ function App() {
           <Route path="/" element={<Home checkup={checkup} schedule={schedule} taken={taken} setTaken={setTaken} next={next} setNext={setNext} />}></Route>
           <Route path="/medications" element={<Medications />}></Route>
           <Route path="/schedule" element={<Schedule schedule={schedule} />}></Route>
-          <Route path="/edit" element={<EditDetails setCheckup={setCheckup} />}></Route>
+          <Route path="/edit" element={<EditDetails setCheckup={setCheckup} checkup={checkup} />}></Route>
           <Route path="/schedule/edit" element={<EditSchedule setSchedule={setSchedule} />}></Route>
         </Routes>
       </BrowserRouter>

@@ -31,17 +31,17 @@ function Home({ checkup, schedule, taken, setTaken, next, setNext }) {
                 <button onClick={nextHandler}>{next === true ? "LAST" : "NEXT"}</button>
             </div>
             <div className={`Home__container ${(checkup.data.lowerRange <= checkup.data.reading) && (checkup.data.reading <= checkup.data.upperRange) ? "Home__inRange" : "Home__outOfRange"}`}>
-                <h2 className="Home__stats">Your last INR reading was:</h2>
-                <h3 className="Home__data">{checkup.data.reading}</h3>
+                <h3 className="Home__stats">Your last INR reading was:</h3>
+                <h4 className="Home__data">{checkup.data.reading}</h4>
             </div>
             <div className="Home__container">
-                <h2 className="Home__stats">Your target INR range is:</h2>
-                <h3 className="Home__data"> {checkup.data.lowerRange} - {checkup.data.upperRange} </h3>
+                <h3 className="Home__stats">Your target INR range is:</h3>
+                <h4 className="Home__data"> {checkup.data.lowerRange} - {checkup.data.upperRange} </h4>
             </div>
             <div className="Home__container">
-                <h2 className="Home__stats">Today, you take:</h2>
-                <h3 className="Home__data">{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
-                </h3>
+                <h3 className="Home__stats">Today, you take:</h3>
+                <h4 className="Home__data">{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
+                </h4>
             </div>
             <button className="Home__edit"><Link to="/edit" className="Home__link">Edit Details</Link></button>
         </div>

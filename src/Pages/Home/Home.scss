@@ -1,4 +1,21 @@
 .Home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__container {
+        width: 50vw;
+        height: 35vh;
+    }
+
+    &__inRange {
+        background-color: palegreen;
+    }
+
+    &__outOfRange {
+        background-color: palevioletred;
+    }
+
     &__stats {
         display: flex;
         justify-content: center;
@@ -6,7 +23,20 @@
 
     &__link {
         text-decoration: none;
+        color: white;
+
+        &:visited {
+            color: white;
+        }
     }
+
+    &__edit {
+        width: 25%;
+        background-color: #38579b;
+        text-decoration: none;
+        border-radius: 25px;
+    }
+
 
     &__taken-button {
         margin-left: 1rem;

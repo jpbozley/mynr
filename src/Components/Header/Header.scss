@@ -13,7 +13,7 @@
 }
 
 .Header {
-    background-color: #0000FF;
+    background-color: #38579b;
     color: white;
 
     &__title {
@@ -36,6 +36,7 @@
         list-style: none;
         padding-bottom: 1rem;
         padding-left: 0;
+        margin-bottom: 0;
     }
 
     &__link {

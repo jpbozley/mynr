@@ -32,15 +32,15 @@ function Home({ checkup, schedule, taken, setTaken, next, setNext }) {
             </div>
             <div className={`Home__container ${(checkup.data.lowerRange <= checkup.data.reading) && (checkup.data.reading <= checkup.data.upperRange) ? "Home__inRange" : "Home__outOfRange"}`}>
                 <h2 className="Home__stats">Your last INR reading was:</h2>
-                <h3>{checkup.data.reading}</h3>
+                <h3 className="Home__data">{checkup.data.reading}</h3>
             </div>
             <div className="Home__container">
                 <h2 className="Home__stats">Your target INR range is:</h2>
-                <h3> {checkup.data.lowerRange} - {checkup.data.upperRange} </h3>
+                <h3 className="Home__data"> {checkup.data.lowerRange} - {checkup.data.upperRange} </h3>
             </div>
             <div className="Home__container">
                 <h2 className="Home__stats">Today, you take:</h2>
-                <h3>{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
+                <h3 className="Home__data">{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
                 </h3>
             </div>
             <button className="Home__edit"><Link to="/edit" className="Home__link">Edit Details</Link></button>

@@ -1,3 +1,5 @@
+@use "../../styles/global.scss" as *;
+
 .Home {
     display: flex;
     flex-wrap: wrap;
@@ -19,10 +21,12 @@
     &__stats {
         display: flex;
         justify-content: center;
+        font-weight: 600
     }
 
     &__data {
         margin-top: 0;
+        font-weight: 600;
     }
 
     &__link {

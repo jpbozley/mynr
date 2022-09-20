@@ -2,7 +2,7 @@ import './EditSchedule.scss'
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-function EditSchedule({ setSchedule }) {
+function EditSchedule({ setSchedule, schedule }) {
     const formRef = useRef();
     const navigate = useNavigate();
 
@@ -29,31 +29,31 @@ function EditSchedule({ setSchedule }) {
             <form className="editSchedule__form" ref={formRef} onSubmit={scheduleHandler}>
                 <div className="editSchedule__container">
                     <label htmlFor="Monday">Monday:</label>
-                    <input type="text" name="Monday" />
+                    <input type="text" name="Monday" defaultValue={schedule.data.Monday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Tuesday">Tuesday:</label>
-                    <input type="text" name="Tuesday" />
+                    <input type="text" name="Tuesday" defaultValue={schedule.data.Tuesday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Wednesday">Wednesday:</label>
-                    <input type="text" name="Wednesday" />
+                    <input type="text" name="Wednesday" defaultValue={schedule.data.Wednesday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Thursday">Thursday:</label>
-                    <input type="text" name="Thursday" />
+                    <input type="text" name="Thursday" defaultValue={schedule.data.Thursday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Friday">Friday:</label>
-                    <input type="text" name="Friday" />
+                    <input type="text" name="Friday" defaultValue={schedule.data.Friday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Saturday">Saturday:</label>
-                    <input type="text" name="Saturday" />
+                    <input type="text" name="Saturday" defaultValue={schedule.data.Saturday} />
                 </div>
                 <div className="editSchedule__container">
                     <label htmlFor="Sunday">Sunday:</label>
-                    <input type="text" name="Sunday" />
+                    <input type="text" name="Sunday" defaultValue={schedule.data.Sunday} />
                 </div>
                 <button className="editSchedule__button">Submit</button>
             </form>

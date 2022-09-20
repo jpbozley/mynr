@@ -40,8 +40,8 @@ function Home({ checkup, schedule, taken, setTaken, next, setNext }) {
             </div>
             <div className="Home__container">
                 <h3 className="Home__stats">Today, you take:</h3>
-                <h4 className="Home__data">{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
-                </h4>
+                <h4 className="Home__data">{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN`}</h4>
+                <button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
             </div>
             <button className="Home__edit"><Link to="/edit" className="Home__link">Edit Details</Link></button>
         </div>

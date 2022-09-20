@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   const [taken, setTaken] = useState(true)
-
+  const [next, setNext] = useState(true)
   //medications
   const [medications, setMedications] = useState()
 
@@ -43,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home checkup={checkup} schedule={schedule} taken={taken} setTaken={setTaken} />}></Route>
+          <Route path="/" element={<Home checkup={checkup} schedule={schedule} taken={taken} setTaken={setTaken} next={next} setNext={setNext} />}></Route>
           <Route path="/medications" element={<Medications />}></Route>
           <Route path="/schedule" element={<Schedule schedule={schedule} />}></Route>
           <Route path="/edit" element={<EditDetails setCheckup={setCheckup} />}></Route>

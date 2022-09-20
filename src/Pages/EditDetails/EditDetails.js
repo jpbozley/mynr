@@ -13,6 +13,7 @@ function EditDetails({ setCheckup }) {
         event.preventDefault();
         axios.post('http://localhost:8080/checkups', {
             date: formRef.current.date.value,
+            dateNext: formRef.current.dateNext.value,
             reading: formRef.current.reading.value,
             lowerRange: formRef.current.lowerRange.value,
             upperRange: formRef.current.upperRange.value,
@@ -28,6 +29,10 @@ function EditDetails({ setCheckup }) {
                 <div className="editDetails__container">
                     <label className="editDetails__label" htmlFor="date">Date of last check:</label>
                     <input className="editDetails__item" name="date" type="text" placeholder='Date of last check' />
+                </div>
+                <div className="editDetails__container">
+                    <label className="editDetails__label" htmlFor="dateNext">Date of next check:</label>
+                    <input className="editDetails__item" name="dateNext" type="text" placeholder='Date of next check' />
                 </div>
                 <div className="editDetails__container">
                     <label className="editDetails__label" htmlFor="reading">INR Reading:</label>

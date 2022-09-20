@@ -31,8 +31,8 @@ function Medications() {
             <h2 className='Medications__name'>{medicineName}</h2>
             <p className="Medications__interactions">{interactionString}</p>
             <form onSubmit={submitHandler}>
-                <input name="name" type="text" />
-                <button>Add New Medication</button>
+                <input name="name" type="text" placeholder="Enter medication name" />
+                <button>Look up interaction</button>
             </form>
 
         </div>

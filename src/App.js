@@ -36,7 +36,12 @@ function App() {
   const [next, setNext] = useState(true)
   //medications
   const [medications, setMedications] = useState()
-
+  useEffect(() => {
+    axios.get('http://localhost:8080/medications')
+      .then(response => {
+        setMedications(response)
+      })
+  })
 
   return (
     <div className="App">
@@ -44,7 +49,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home checkup={checkup} schedule={schedule} taken={taken} setTaken={setTaken} next={next} setNext={setNext} />}></Route>
-          <Route path="/medications" element={<Medications />}></Route>
+          <Route path="/medications" element={<Medications medications={medications} setMedications={setMedications} />}></Route>
           <Route path="/schedule" element={<Schedule schedule={schedule} />}></Route>
           <Route path="/edit" element={<EditDetails setCheckup={setCheckup} checkup={checkup} />}></Route>
           <Route path="/schedule/edit" element={<EditSchedule setSchedule={setSchedule} schedule={schedule} />}></Route>

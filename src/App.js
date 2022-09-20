@@ -25,7 +25,6 @@ function App() {
 
   //schedule
   const [schedule, setSchedule] = useState()
-
   useEffect(() => {
     axios.get(`http://localhost:8080/schedule`)
       .then(response => {
@@ -33,6 +32,10 @@ function App() {
       })
   }, [])
 
+  const [taken, setTaken] = useState(false)
+
+  //medications
+  const [medications, setMedications] = useState()
 
 
   return (
@@ -40,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home checkup={checkup} schedule={schedule} />}></Route>
+          <Route path="/" element={<Home checkup={checkup} schedule={schedule} taken={taken} setTaken={setTaken} />}></Route>
           <Route path="/medications" element={<Medications />}></Route>
           <Route path="/schedule" element={<Schedule schedule={schedule} />}></Route>
           <Route path="/edit" element={<EditDetails setCheckup={setCheckup} />}></Route>

@@ -32,7 +32,7 @@ function App() {
       })
   }, [])
 
-  const [taken, setTaken] = useState(false)
+  const [taken, setTaken] = useState(true)
 
   //medications
   const [medications, setMedications] = useState()

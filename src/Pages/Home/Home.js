@@ -7,7 +7,7 @@ function Home({ checkup, schedule, taken, setTaken }) {
     const now = new Date();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dayOfWeek = days[now.getDay()];
-
+    const time = now.toLocaleTimeString();
     let clickHandler = () => {
         setTaken(!taken)
     }
@@ -37,7 +37,7 @@ function Home({ checkup, schedule, taken, setTaken }) {
             </div>
             <div>
                 <h2 className="Home__stats">Today, you take:</h2>
-                <h3>{taken === true ? `${schedule.data[dayOfWeek]} mg` : 'TAKEN'}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
+                <h3>{taken === true ? `${schedule.data[dayOfWeek]} mg` : `TAKEN AT ${time}`}<button className="Home__taken-button" onClick={clickHandler}>{taken === false ? `UNDO` : 'TAKE'}</button>
                 </h3>
             </div>
             <button><Link to="/edit" className="Home__link">Edit Details</Link></button>

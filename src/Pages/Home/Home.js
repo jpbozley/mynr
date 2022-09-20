@@ -2,13 +2,16 @@ import './Home.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-function Home({ checkup, schedule, taken, setTaken }) {
+function Home({ checkup, schedule, taken, setTaken, next, setNext }) {
 
     const now = new Date();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dayOfWeek = days[now.getDay()];
     let clickHandler = () => {
         setTaken(!taken)
+    }
+    let nextHandler = () => {
+        setNext(!next)
     }
     if (checkup === undefined) {
         return (<h1>loading...</h1>)
@@ -23,12 +26,13 @@ function Home({ checkup, schedule, taken, setTaken }) {
     return (
         <div className="Home">
             <div className="Home__container">
-                <h2 className="Home__stats">Your last INR check was on:</h2>
-                <h3>{checkup.data.date}</h3>
+                <h3 className="Home__stats">Your {next === true ? "next" : "last"} INR check {next === true ? "is" : "was"} on:</h3>
+                <h4 className="Home__data">{next === true ? checkup.data.dateNext : checkup.data.date}</h4>
+                <button onClick={nextHandler}>{next === true ? "LAST" : "NEXT"}</button>
             </div>
             <div className={`Home__container ${(checkup.data.lowerRange <= checkup.data.reading) && (checkup.data.reading <= checkup.data.upperRange) ? "Home__inRange" : "Home__outOfRange"}`}>
                 <h2 className="Home__stats">Your last INR reading was:</h2>
-                <h3>{checkup.data.reading} </h3>
+                <h3>{checkup.data.reading}</h3>
             </div>
             <div className="Home__container">
                 <h2 className="Home__stats">Your target INR range is:</h2>

@@ -39,23 +39,28 @@ function Medications({ medications, setMedications }) {
         event.target.reset();
     }
 
+
+    const deleteHandler = (id) => {
+        axios.delete(`http://localhost:8080/medications/${id}`)
+
+    }
+
+
     if (medications === undefined) {
         return (<h1>loading...</h1>)
     }
+
     return (
         <div className="Medications">
             <h3>Your current medications:</h3>
             <ul className="Medications__current">
-
                 {medications.data.map((medication) => {
                     return (
-                        <li>{medication.name}: {medication.dose}</li>
+                        <li>{medication.name}: {medication.dose} <button onClick={() => deleteHandler(medication.id)}>Delete</button></li>
 
                     )
                 })}
             </ul>
-            <h4>{medications.data.name}</h4>
-            <h4>{medications.data.dose}</h4>
             <form ref={formRef} onSubmit={newMedHandler}>
                 <input type="text" name="name" placeholder="Enter medication name" />
                 <input type="text" name="dose" placeholder="Enter medication dose" />

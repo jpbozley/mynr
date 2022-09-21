@@ -8,6 +8,12 @@
         text-align: left;
         color: #000080;
         font-weight: 600;
+
+        &__active {
+            font-weight: 700;
+            color: white;
+            background-color: #000080
+        }
     }
 
     &__link {

@@ -3,7 +3,11 @@
         color: #000080
     }
 
-    ;
+    &__current {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+    }
 
     &__interactions {
         display: flex;

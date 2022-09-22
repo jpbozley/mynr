@@ -28,13 +28,13 @@ function Home({ checkup, schedule, taken, setTaken, next, setNext }) {
             <div className="Home__container">
                 <h3 className="Home__stats">Your {next === true ? "upcoming" : "previous"} INR check {next === true ? "is" : "was"} on:</h3>
                 <h4 className="Home__data">{next === true ? checkup.data.dateNext : checkup.data.date}</h4>
-                <button onClick={nextHandler}>{next === true ? "PREVIOUS" : "UPCOMING"}</button>
+                <button className="Home__upcoming-button" onClick={nextHandler}>{next === true ? "PREVIOUS" : "UPCOMING"}</button>
             </div>
             <div className={`Home__container ${(checkup.data.lowerRange <= checkup.data.reading) && (checkup.data.reading <= checkup.data.upperRange) ? "Home__inRange" : "Home__outOfRange"}`}>
                 <h3 className="Home__stats">Your last INR reading was:</h3>
                 <h4 className="Home__data">{checkup.data.reading}</h4>
             </div>
-            <div className="Home__container">
+            <div className="Home__container Home__container-grey">
                 <h3 className="Home__stats">Your target INR range is:</h3>
                 <h4 className="Home__data"> {checkup.data.lowerRange} - {checkup.data.upperRange} </h4>
             </div>

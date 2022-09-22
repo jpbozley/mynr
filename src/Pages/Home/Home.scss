@@ -8,6 +8,10 @@
     &__container {
         width: 50vw;
         height: 35vh;
+
+        &-grey {
+            background-color: lightgrey;
+        }
     }
 
     &__inRange {
@@ -43,10 +47,24 @@
         background-color: #38579b;
         text-decoration: none;
         border-radius: 25px;
+        margin-top: .5rem;
     }
 
+    &__upcoming-button {
+        background-color: white;
+        border: #38579b 2px solid;
+        color: #38579b;
+        border-radius: 25px;
+        padding: .5rem;
+        font-weight: 600;
+    }
 
     &__taken-button {
-        margin-left: 1rem;
+        background-color: white;
+        border: #38579b 2px solid;
+        color: #38579b;
+        border-radius: 25px;
+        padding: .5rem;
+        font-weight: 600;
     }
 }

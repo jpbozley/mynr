@@ -27,6 +27,7 @@ function Medications({ medications, setMedications }) {
     const submitHandler = (event) => {
         event.preventDefault();
         setMedicineName(event.target.name.value)
+        event.target.reset();
 
     }
 
@@ -56,23 +57,27 @@ function Medications({ medications, setMedications }) {
             <ul className="Medications__current">
                 {medications.data.map((medication) => {
                     return (
-                        <li>{medication.name}: {medication.dose} <button onClick={() => deleteHandler(medication.id)}>Delete</button></li>
+                        <li>{medication.name}: {medication.dose} <button className="Medications__delete" onClick={() => deleteHandler(medication.id)}>Delete</button></li>
 
                     )
                 })}
             </ul>
             <form ref={formRef} onSubmit={newMedHandler}>
-                <input type="text" name="name" placeholder="Enter medication name" />
-                <input type="text" name="dose" placeholder="Enter medication dose" />
-                <button>Submit</button>
+                <div>
+                    <input type="text" name="name" placeholder="Enter medication name" />
+                </div>
+                <div>
+                    <input type="text" name="dose" placeholder="Enter medication dose" />
+                </div>
+                <button className="Medications__button">Submit</button>
             </form>
             <div className="Medications__interactions-container">
                 <h3>Check RX Interactions</h3>
                 <h2 className='Medications__name'>{medicineName}</h2>
                 <p className="Medications__interactions">{interactionString}</p>
                 <form onSubmit={submitHandler}>
-                    <input name="name" type="text" placeholder="Enter medication name" />
-                    <button>Look up interaction</button>
+                    <div><input name="name" type="text" placeholder="Enter medication name" /></div>
+                    <button className="Medications__button">Look up interaction</button>
                 </form>
             </div>
         </div>

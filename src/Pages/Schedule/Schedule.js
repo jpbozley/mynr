@@ -10,16 +10,32 @@ function Schedule({ schedule }) {
 
     return (
         < div className="Schedule" >
-            <ul className="Schedule__list">
-                <li className={`Schedule__list-item ${(dayOfWeek === 'Monday') ? "Schedule__list-item__active" : ""}`}>Monday: {schedule.data.Monday} mg </li>
-                <li className={`Schedule__list-item ${(dayOfWeek === 'Tuesday') ? "Schedule__list-item__active" : ""}`}>Tuesday: {schedule.data.Tuesday} mg</li>
-                <li className={`Schedule__list-item ${(dayOfWeek === "Wednesday") ? "Schedule__list-item__active" : ""}`}>Wednesday: {schedule.data.Wednesday} mg</li>
-                <li className={`Schedule__list-item ${(dayOfWeek === "Thursday") ? "Schedule__list-item__active" : ""}`}>Thursday: {schedule.data.Thursday} mg</li>
-                <li className={`Schedule__list-item ${(dayOfWeek === "Friday") ? "Schedule__list-item__active" : ""}`}>Friday: {schedule.data.Friday} mg</li>
-                <li className={`Schedule__list-item ${(dayOfWeek === "Saturday") ? "Schedule__list-item__active" : ""}`}>Saturday: {schedule.data.Saturday} mg</li>
-                <li className={`Schedule__list-item ${(dayOfWeek === "Sunday") ? "Schedule__list-item__active" : ""}`}>Sunday: {schedule.data.Sunday} mg</li>
-            </ul>
-            <button><Link className="Schedule__link" to="/schedule/edit">Edit Schedule</Link></button>
+            <div className="Schedule__container">
+                <ul className="Schedule__list">
+                    <li className={`Schedule__list-item ${(dayOfWeek === 'Monday') ? "Schedule__list-item__active" : ""}`}>
+                        <div>Monday: </div>
+                        <div>{schedule.data.Monday} mg </div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === 'Tuesday') ? "Schedule__list-item__active" : ""}`}>
+                        <div>Tuesday: </div>
+                        <div>{schedule.data.Tuesday} mg</div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === "Wednesday") ? "Schedule__list-item__active" : ""}`}>
+                        <div>Wednesday: </div>
+                        <div>{schedule.data.Wednesday} mg</div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === "Thursday") ? "Schedule__list-item__active" : ""}`}>
+                        <div>Thursday: </div>
+                        <div>{schedule.data.Thursday} mg</div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === "Friday") ? "Schedule__list-item__active" : ""}`}>
+                        <div>Friday: </div>
+                        <div>{schedule.data.Friday} mg</div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === "Saturday") ? "Schedule__list-item__active" : ""}`}>
+                        <div>Saturday: </div>
+                        <div>{schedule.data.Saturday} mg</div></li>
+                    <li className={`Schedule__list-item ${(dayOfWeek === "Sunday") ? "Schedule__list-item__active" : ""}`}>
+                        <div>Sunday: </div>
+                        <div>{schedule.data.Sunday} mg</div></li>
+                </ul>
+            </div>
+            <button className="Schedule__button"><Link className="Schedule__link" to="/schedule/edit">Edit Schedule</Link></button>
 
         </div >
     );
